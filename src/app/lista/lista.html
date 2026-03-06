@@ -1,0 +1,50 @@
+<!-- Lista 1: *ngFor e *ngIf (sintaxe antiga) -->
+<div class="card bg-base-100 shadow-md">
+  <div class="card-body">
+    <h2 class="card-title text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+      </svg>
+      Lista 1 — *ngFor e *ngIf
+    </h2>
+    <div class="divider"></div>
+    <ul class="list bg-base-200 rounded-box">
+      <li class="list-row" *ngFor="let item of lista; let i = index">
+        <div class="bg-secondary text-secondary-content rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+          {{ i + 1 }}
+        </div>
+        <div class="list-col-grow font-medium">{{ item }}</div>
+        <span *ngIf="item === 'Arroz'" class="badge badge-warning">Comprar 5kg</span>
+        <span *ngIf="item !== 'Arroz'" class="badge badge-ghost">item</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Lista 2: @for e @if (sintaxe nova) -->
+<div class="card bg-base-100 shadow-md mt-6">
+  <div class="card-body">
+    <h2 class="card-title text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+      </svg>
+      Lista 2 — &#64;for e &#64;if
+    </h2>
+    <div class="divider"></div>
+    <ul class="list bg-base-200 rounded-box">
+      @for (item of lista2; track item; let i = $index) {
+        <li class="list-row">
+          <div class="bg-primary text-primary-content rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+            {{ i + 1 }}
+          </div>
+          <div class="list-col-grow font-medium">{{ item }}</div>
+          @if (item === 'Pão') {
+            <span class="badge badge-warning">Comprar 2un</span>
+          } @else {
+            <span class="badge badge-ghost">item</span>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+</div>

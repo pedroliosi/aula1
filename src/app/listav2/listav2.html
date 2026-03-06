@@ -1,0 +1,53 @@
+﻿<div class="card bg-base-100 shadow-md">
+  <div class="card-body">
+    <h2 class="card-title text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" />
+      </svg>
+      Lista de Produtos — *ngFor e *ngIf
+    </h2>
+    <div class="divider"></div>
+    <ul class="list bg-base-200 rounded-box">
+      <li class="list-row" *ngFor="let item of produtos; let i = index">
+        <div class="bg-secondary text-secondary-content rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+          {{ i + 1 }}
+        </div>
+        <div class="list-col-grow font-medium">{{ item.nome }}</div>
+        <span *ngIf="item.quantidade < 2" class="badge badge-error">qtd: {{ item.quantidade }}</span>
+        <span *ngIf="item.quantidade >= 2 && item.quantidade <= 3" class="badge badge-warning">qtd: {{ item.quantidade }}</span>
+        <span *ngIf="item.quantidade > 3" class="badge badge-success">qtd: {{ item.quantidade }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="card bg-base-100 shadow-md mt-6">
+  <div class="card-body">
+    <h2 class="card-title text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" />
+      </svg>
+      Lista de Produtos — &#64;for e &#64;if
+    </h2>
+    <div class="divider"></div>
+    <ul class="list bg-base-200 rounded-box">
+      @for (item of produtos; track item.nome; let i = $index) {
+        <li class="list-row">
+          <div class="bg-primary text-primary-content rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+            {{ i + 1 }}
+          </div>
+          <div class="list-col-grow font-medium">{{ item.nome }}</div>
+          @if (item.quantidade < 2) {
+            <span class="badge badge-error">qtd: {{ item.quantidade }}</span>
+          }
+          @if (item.quantidade >= 2 && item.quantidade <= 3) {
+            <span class="badge badge-warning">qtd: {{ item.quantidade }}</span>
+          }
+          @if (item.quantidade > 3) {
+            <span class="badge badge-success">qtd: {{ item.quantidade }}</span>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+</div>

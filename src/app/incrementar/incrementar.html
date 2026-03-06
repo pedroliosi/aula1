@@ -1,0 +1,34 @@
+<div class="card bg-base-100 shadow-md">
+  <div class="card-body items-center text-center">
+    <h2 class="card-title text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      </svg>
+      Contador — Event Binding
+    </h2>
+    <div class="divider"></div>
+    <div
+      class="radial-progress text-primary text-2xl font-bold"
+      [ngStyle]="{'--value': progressValue, '--size': '8rem'}"
+      role="progressbar"
+      [attr.aria-valuenow]="contador"
+    >
+      {{ contador }}
+    </div>
+    <p class="text-base-content/50 text-sm mt-1">valor atual</p>
+    <div class="card-actions mt-4 gap-3">
+      <button class="btn btn-error btn-outline" (click)="decrementar()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+        </svg>
+        Decrementar
+      </button>
+      <button class="btn btn-success" (click)="incrementar()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        Incrementar
+      </button>
+    </div>
+  </div>
+</div>
